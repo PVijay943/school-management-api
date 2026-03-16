@@ -1,0 +1,65 @@
+{
+  "info": {
+    "name": "School Management API",
+    "_postman_id": "school-management-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Add School",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Greenwood High\",\n  \"address\": \"123 Main St, Springfield\",\n  \"latitude\": 40.7128,\n  \"longitude\": -74.0060\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://school-management-api-production-4cc4.up.railway.app/addSchool",
+          "protocol": "https",
+          "host": [
+            "school-management-api-production-4cc4",
+            "up",
+            "railway",
+            "app"
+          ],
+          "path": ["addSchool"]
+        },
+        "description": "Adds a new school. Validates name, address, latitude and longitude."
+      }
+    },
+    {
+      "name": "List Schools",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://school-management-api-production-4cc4.up.railway.app/listSchools?latitude=40.7128&longitude=-74.0060",
+          "protocol": "https",
+          "host": [
+            "school-management-api-production-4cc4",
+            "up",
+            "railway",
+            "app"
+          ],
+          "path": ["listSchools"],
+          "query": [
+            { "key": "latitude", "value": "40.7128" },
+            { "key": "longitude", "value": "-74.0060" }
+          ]
+        },
+        "description": "Returns all schools sorted by distance from the given coordinates using Haversine formula."
+      }
+    }
+  ]
+}
